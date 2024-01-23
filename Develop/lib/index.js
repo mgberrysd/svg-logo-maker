@@ -2,6 +2,10 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+const SVG = require("./svg");
+const { Square } = require("./shapes");
+
+
 // Propmpts the user to answer questions about thier desired svg including:
 // Characters as part of image
 // text color
