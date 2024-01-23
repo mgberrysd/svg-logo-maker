@@ -2,8 +2,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-const SVG = require("./svg");
-const {Shapes, Circle, Triangle, Square} = require("./shapes");
+const SVG = require("./app/lib/svg");
+const {Shapes, Circle, Triangle, Square} = require("./app/lib/shapes");
 
 
 // Propmpts the user to answer questions about thier desired svg including:
@@ -56,7 +56,7 @@ inquirer
 
     // Writes the markdown to README.md in the generated folder after all questions have been answered
 
-    fs.writeFile('./generated/logo.svg', svg.render(), (err) =>
+    fs.writeFile('./examples/logo.svg', svg.render(), (err) =>
       err ? console.log(err) : console.log('Generated logo.svg')
     );
   });
