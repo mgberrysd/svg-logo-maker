@@ -14,7 +14,7 @@ When run on the command line the user should see the following:
 
 ![SVG logo maker question prompt when run from the command line](assets/svg_cli_ex.png)
 
-A video of the application being run can be found at https://drive.google.com/file/d/1L-COQAqZBsyBQqTn6h5mzF0vOqQAsH_y/view
+A video of the application being run can be found at https://drive.google.com/file/d/1V97tGK8tdl74R4QeIP6T2Jzy-kSN0JRo/
 
 An example generated SVG is shown below:
 
