@@ -21,10 +21,9 @@ inquirer
       message: 'Enter up to 3 characters:',
     },
     {
-      type: 'list',
+      type: 'input',
       name: 'textColor',
       message: 'What color would you like the text?',
-      choices: ['white', 'blue', 'red', 'black', 'yellow']
     },
     {
       type: 'list',
@@ -33,10 +32,9 @@ inquirer
       choices: ['Circle', 'Triangle', 'Square']
     },
     {
-      type: 'list',
+      type: 'input',
       name: 'shapeColor',
       message: 'What color would you like the shape?',
-      choices: ['blue', 'red', 'black', 'yellow', 'green']
     },
   ])
   .then((data) => {
