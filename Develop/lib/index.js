@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 const SVG = require("./svg");
-const { Square } = require("./shapes");
+const {Shapes, Circle, Triangle, Square} = require("./shapes");
 
 
 // Propmpts the user to answer questions about thier desired svg including:
@@ -29,7 +29,7 @@ inquirer
       type: 'list',
       name: 'shape',
       message: 'What shape would you like the image to be?',
-      choices: ['circle', 'triangle', 'square']
+      choices: ['Circle', 'Triangle', 'Square']
     },
     {
       type: 'list',
@@ -39,18 +39,24 @@ inquirer
     },
   ])
   .then((data) => {
-    const svg = `
-<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    const svg = new SVG();
+    let shape;
+    if (data.shape == 'Circle') {
+      shape = new Circle();
+    }
+    if (data.shape == 'Triangle') {
+      shape = new Triangle();
+    }
+    if (data.shape == 'Square') {
+      shape = new Square();
+    }
+    svg.setText(data.text, data.textColor);
+    shape.setColor(data.shapeColor);
+    svg.setShape(shape);
 
-  <${data.shape} cx="150" cy="100" r="80" fill="${data.shapeColor}" />
-
-  <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.text}</text>
-
-</svg>
-`;
     // Writes the markdown to README.md in the generated folder after all questions have been answered
 
-    fs.writeFile('./generated/logo.svg', svg, (err) =>
+    fs.writeFile('./generated/logo.svg', svg.render(), (err) =>
       err ? console.log(err) : console.log('Generated logo.svg')
     );
   });
